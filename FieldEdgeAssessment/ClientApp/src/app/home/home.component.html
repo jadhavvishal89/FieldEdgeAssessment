@@ -1,0 +1,35 @@
+
+<div class="col-sm-6">
+  <button class="btn btn-success" (click)="AddCustomer()">
+    <i class='fas fa-plus-circle'></i><span> ADD</span>
+  </button>
+</div>
+<table class="table table-striped table-hover table-bordered table-content">
+  <thead>
+  <th>CustomerId</th>
+  <th>Firstname</th>
+  <th>Lastname</th>
+  <th>Email</th>
+  <th>Phone_Number</th>
+  <th>Country_code</th>
+  <th>Gender</th>
+  <th>Balance</th>
+  <th>Edit</th>
+  <th>Delete</th>
+
+  </thead>
+  <tbody>
+    <tr *ngFor="let customer of customerlist">
+      <td>{{customer.id}}</td>
+      <td>{{customer.firstname}}</td>
+      <td>{{customer.lastname}}</td>
+      <td><a href="mailto:{{customer.email}}"> {{customer.email}}</a></td>
+      <td>{{customer.phone_Number}}</td>
+      <td>{{customer.country_code}}</td>
+      <td>{{customer.gender}}</td>
+      <td>{{customer.balance| currency:'INR'}}</td>
+      <td><button class="edit" (click)='update(customer.id)'>edit</button> </td>
+      <td><button class="delete" (click)='delete(customer.id)'>remove</button> </td>
+    </tr>
+  </tbody>
+</table>
